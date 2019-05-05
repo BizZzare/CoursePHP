@@ -1,0 +1,107 @@
+@media screen and (max-width: 850px) {
+  /* line 2, ../../sass/scss/media.scss */
+  .header-container a {
+    font-size: 12px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 590px) {
+  /* line 9, ../../sass/scss/media.scss */
+  .header-container a {
+    font-size: 10px;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 505px) {
+  /* line 16, ../../sass/scss/media.scss */
+  .header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* line 21, ../../sass/scss/media.scss */
+  .main-menu {
+    display: none;
+  }
+
+  /* line 24, ../../sass/scss/media.scss */
+  .main-menu li {
+    width: 100%;
+    display: block;
+  }
+
+  /* line 28, ../../sass/scss/media.scss */
+  .main-menu a {
+    display: block;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  /* line 33, ../../sass/scss/media.scss */
+  .toggle-button {
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+  }
+
+  /* line 40, ../../sass/scss/media.scss */
+  .toggle-button:after {
+    content: attr(data-open);
+    display: block;
+  }
+
+  /* line 44, ../../sass/scss/media.scss */
+  #menu-checkbox:checked + nav[role="navigation"] .main-menu {
+    display: block;
+  }
+
+  /* line 47, ../../sass/scss/media.scss */
+  #menu-checkbox:checked + nav[role="navigation"] .toggle-button:after {
+    content: attr(data-close);
+  }
+
+  /* line 50, ../../sass/scss/media.scss */
+  .header-container a {
+    margin-right: -65px;
+    margin-bottom: 8px;
+  }
+  /* line 53, ../../sass/scss/media.scss */
+  .header-container a:hover {
+    border-bottom: none;
+  }
+  /* line 56, ../../sass/scss/media.scss */
+  .header-container a:focus {
+    border-bottom: none;
+  }
+
+  /* line 60, ../../sass/scss/media.scss */
+  .main-menu {
+    position: relative;
+    top: 30px;
+    right: 115px;
+  }
+
+  /* line 66, ../../sass/scss/media.scss */
+  .r_form {
+    max-width: 380px;
+    margin: 20px auto;
+  }
+
+  .m_form {
+    max-width: 380px;
+    margin: 20px auto;
+  }
+
+  /* line 71, ../../sass/scss/media.scss */
+  .form_row input {
+    max-width: 380px;
+  }
+
+  /* line 75, ../../sass/scss/media.scss */
+  .form_row textarea {
+    max-width: 380px;
+  }
+}

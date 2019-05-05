@@ -9,12 +9,13 @@
 
 </head>
 <body>
-
+<div id="page-container">
     <?php require 'header.php';?>
     
     <section id="theme" class="theme">
         <img src="assets/images/Fon02.jpg" class="responsive">
     </section>
+    <div id="page-container">
 
     <section id="form1" class="form_reg">
         <div class="container">
@@ -49,26 +50,7 @@
         </div>
     </section>
 
-    <section id="form2" class="form_autoris">
-        <div class="container">
-            <div class="row">
-                <h1>Авторизация на сайте</h1>
-                <form class="a_form" action="index.php" method="get" >
-                    <div class="form_row_a">
-                        <label for="login">Логин: </label>
-                        <input type="text" id="Login" name="Login" placeholder="Логин"/>
-                    </div >
-                    <div class="form_row_a">
-                        <label for="password">Пароль: </label>
-                        <input type="password" id="password" name="Password" placeholder="Пароль"/>
-                    </div>
-                    <div class="form_row_a">
-                        <input type="submit" value="Авторизация"/>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+
 
     <section id="form3" class="form_message">
         <div class="container">
@@ -130,9 +112,9 @@
             </div>
         </div>
     </section>
-
+    </div>
     <?php require 'footer.php';?>
-
+</div>
     <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

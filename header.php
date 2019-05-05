@@ -9,7 +9,7 @@
                    data-open="MENU" data-close="CLOSE" onclick></label>
             <ul class="main-menu">
                 <li><a href="#form1">РЕГИСТРАЦИЯ</a></li>
-                <li><a href="#form2">АВТОРИЗАЦИЯ</a></li>
+                <li><a href="auth.php">АВТОРИЗАЦИЯ</a></li>
                 <li><a href="#form3">КОНТАКТЫ</a></li>
                 <li><a href="#profit">КЛИЕНТЫ</a></li>
             </ul>

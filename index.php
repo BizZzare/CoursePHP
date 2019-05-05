@@ -10,28 +10,7 @@
 </head>
 <body>
 
-    <header>
-       <div class="header-container">
-           <div class="logo">
-                <img src="assets/images/Logo2.png" alt="Logo">
-           </div>
-           <input type="checkbox" id="menu-checkbox">
-           <nav role="navigation">
-               <label for="menu-checkbox" class="toggle-button"
-                      data-open="MENU" data-close="CLOSE" onclick></label>
-               <ul class="main-menu">
-                   <li><a href="#form1">РЕГИСТРАЦИЯ</a></li>
-                   <li><a href="#form2">АВТОРИЗАЦИЯ</a></li>
-                   <li><a href="#form3">КОНТАКТЫ</a></li>
-                   <li><a href="#profit">КЛИЕНТЫ</a></li>
-               </ul>
-           </nav>
-           <form class="s_form" action="index.html" method="get">
-               <input type="search" name="text">
-               <input type="submit" value="Найти">
-           </form>
-       </div>
-    </header>
+    <?php require 'header.php';?>
     
     <section id="theme" class="theme">
         <img src="assets/images/Fon02.jpg" class="responsive">
@@ -41,7 +20,7 @@
         <div class="container">
             <div class="row">
                <h1>Регистрация</h1>
-               <form class="r_form" action="index.html" method="get" >
+               <form class="r_form" action="index.php" method="get" >
                    <div class="form_row">
                        <label for="f_name">Имя: </label>
                        <input type="text" id="f_name" name="Имя:"/>
@@ -74,7 +53,7 @@
         <div class="container">
             <div class="row">
                 <h1>Авторизация на сайте</h1>
-                <form class="a_form" action="index.html" method="get" >
+                <form class="a_form" action="index.php" method="get" >
                     <div class="form_row_a">
                         <label for="login">Логин: </label>
                         <input type="text" id="Login" name="Login" placeholder="Логин"/>
@@ -152,17 +131,7 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="footer_content">
-                    <p>Copyright © 2019 Created by ANTONIO</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
+    <?php require 'footer.php';?>
 
     <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"

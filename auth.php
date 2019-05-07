@@ -28,7 +28,7 @@ session_start();
         <div class="container">
             <div class="row">
                 <h1>Авторизация на сайте</h1>
-                <form class="a_form" action="authorization.php" method="post">
+                <form class="a_form" action="app/authorization.php" method="post">
                     <div class="form_row_a">
                         <label for="login">Логин: </label>
                         <input type="text" id="Login" name="Login" placeholder="Логин"/>

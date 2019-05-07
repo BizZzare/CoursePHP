@@ -111,10 +111,11 @@ nav {
   background-image: url("../assets/images/fon01.jpg");
   background-attachment: fixed;
   background-size: cover;
+  height: 700px;
 }
 
 .r_form {
-  width: 500px;
+  width: 700px;
   margin: 30px auto;
 }
 
@@ -125,7 +126,8 @@ nav {
   font-weight: bold;
 }
 
-.form_row input {
+
+.form_row input, select {
   float: right;
   height: 20px;
   line-height: 20px;
@@ -133,6 +135,12 @@ nav {
   width: 400px;
   border: 1px solid black;
 }
+
+.img input{
+  height: 40px !important;
+  line-height: normal !important;
+}
+
 
 h1 {
   text-align: center;
@@ -166,6 +174,7 @@ h1 {
   background-image: url("../assets/images/fon01.jpg");
   background-attachment: fixed;
   background-size: auto;
+  height: 560px;
 }
 
 .a_form {

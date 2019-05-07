@@ -1,7 +1,9 @@
 <header>
     <div class="header-container">
         <div class="logo">
-            <img src="../assets/images/Logo2.png" alt="Logo">
+            <a href="../index.php">
+                <img src="../assets/images/Logo2.png" alt="Logo">
+            </a>
         </div>
         <input type="checkbox" id="menu-checkbox">
         <nav role="navigation">
@@ -10,9 +12,9 @@
             <ul class="main-menu">
                 <?php
                 if (!isset($_SESSION["User"]))
-                    echo '<li><a href="#form1">РЕГИСТРАЦИЯ</a></li><li><a href="../auth.php">АВТОРИЗАЦИЯ</a></li>';
+                    echo '<li><a href="../register.php">РЕГИСТРАЦИЯ</a></li><li><a href="../auth.php">АВТОРИЗАЦИЯ</a></li>';
 
-                echo '<li><a href="#form3">КОНТАКТЫ</a></li>';
+                echo '<li><a href="../contacts.php">КОНТАКТЫ</a></li>';
 
                 if (isset($_SESSION["User"]))
                     echo '<li><a href="#profit">КЛИЕНТЫ</a></li><li><a href="">ЛИЧНЫЙ КАБИНЕТ</a></li>';

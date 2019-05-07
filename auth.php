@@ -42,13 +42,14 @@ session_start();
                     </div>
                 </form>
             </div>
+            <?php
+            if( isset($_SESSION["LoginError"]) && $_SESSION["LoginError"])
+                echo '<div class="login-error">Логин или пароль были введены не верно!</div>'
+            ?>
         </div>
     </section>
 
-    <?php
-        if( isset($_SESSION["LoginError"]) && $_SESSION["LoginError"])
-            echo '<div class="login-error">Логин или пароль были введены не верно!</div>'
-    ?>
+
 
     <?php require 'app/footer.php'; ?>
 

@@ -6,7 +6,7 @@
  * Time: 15:38
  */
 
-require_once('app/include/Repository.php');
+require_once('include/Repository.php');
 
 if(isset($_POST["Login"]) && isset($_POST["Password"]) && $_POST["Login"] != "" && $_POST["Password"] != "" ){
 
@@ -20,17 +20,14 @@ if(isset($_POST["Login"]) && isset($_POST["Password"]) && $_POST["Login"] != "" 
     if($result) {
         $_SESSION["User"] = $rep->GetUser($login, $password);
         $_SESSION["LoginError"] = false;
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
     else {
         $_SESSION["LoginError"] = true;
-
-
-
-        header('Location: auth.php');
+        header('Location: ../auth.php');
     }
 }
 else{
     $_SESSION["LoginError"] = true;
-    header('Location: auth.php');
+    header('Location: ../auth.php');
 }

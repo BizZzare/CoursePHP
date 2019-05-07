@@ -20,41 +20,6 @@
     </section>
     <div id="page-container">
 
-    <section id="form1" class="form_reg">
-        <div class="container">
-            <div class="row">
-               <h1>Регистрация</h1>
-               <form class="r_form" action="index.php" method="get" >
-                   <div class="form_row">
-                       <label for="f_name">Имя: </label>
-                       <input type="text" id="f_name" name="Имя:"/>
-                   </div >
-                   <div class="form_row">
-                       <label for="s_name">Фамилия: </label>
-                       <input type="text" id="s_name" name="Фамилия:"/>
-                   </div>
-                   <div class="form_row">
-                       <label for="form_email">Email: </label>
-                       <input type="email" id="form_email" name="email:"/>
-                   </div>
-                   <div class="form_row">
-                       <label for="form_phone">Телефон: </label>
-                       <input type="text" id="form_phone" name="Телефон:"/>
-                   </div>
-                   <div class="form_row">
-                       <label for="form_info">Кратко о себе:</label>
-                       <textarea name="Краткая информация:" id="form_info"></textarea>
-                   </div>
-                   <div class="form_row">
-                       <input type="submit" value="Зарегистрироваться"/>
-                   </div>
-               </form>
-            </div>
-        </div>
-    </section>
-
-
-
     <section id="form3" class="form_message">
         <div class="container">
             <div class="row">

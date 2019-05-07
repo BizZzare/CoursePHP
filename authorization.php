@@ -6,16 +6,31 @@
  * Time: 15:38
  */
 
-require_once('Repository.php');
+require_once('app/include/Repository.php');
 
-if(isset($_POST["Login"]) && isset($_POST["Password"])){
+if(isset($_POST["Login"]) && isset($_POST["Password"]) && $_POST["Login"] != "" && $_POST["Password"] != "" ){
 
     $login = $_POST["Login"];
     $password = $_POST["Password"];
 
     $rep = new Repository();
-    $rep->CheckCredentials($login, $password);
+    $result = $rep->CheckCredentials($login, $password);
+
+    session_start();
+    if($result) {
+        $_SESSION["User"] = $rep->GetUser($login, $password);
+        $_SESSION["LoginError"] = false;
+        header('Location: index.php');
+    }
+    else {
+        $_SESSION["LoginError"] = true;
+
+
+
+        header('Location: auth.php');
+    }
 }
 else{
-
+    $_SESSION["LoginError"] = true;
+    header('Location: auth.php');
 }

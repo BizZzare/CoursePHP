@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
 
 <div id="page-container">
 
-    <?php require 'header.php'; ?>
+    <?php require 'app/header.php'; ?>
 
     <section id="theme" class="theme">
         <img src="assets/images/Fon02.jpg" class="responsive">
@@ -42,7 +45,12 @@
         </div>
     </section>
 
-    <?php require 'footer.php'; ?>
+    <?php
+        if( isset($_SESSION["LoginError"]) && $_SESSION["LoginError"])
+            echo '<div class="login-error">Логин или пароль были введены не верно!</div>'
+    ?>
+
+    <?php require 'app/footer.php'; ?>
 
 </div>
 

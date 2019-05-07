@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,7 @@
 </head>
 <body>
 <div id="page-container">
-    <?php require 'header.php';?>
+    <?php require 'app/header.php';?>
     
     <section id="theme" class="theme">
         <img src="assets/images/Fon02.jpg" class="responsive">
@@ -113,7 +116,7 @@
         </div>
     </section>
     </div>
-    <?php require 'footer.php';?>
+    <?php require 'app/footer.php';?>
 </div>
     <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"

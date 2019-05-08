@@ -114,6 +114,13 @@ nav {
   height: 700px;
 }
 
+.form_account {
+  background-image: url("../assets/images/fon01.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  height: 1100px;
+}
+
 .r_form {
   width: 700px;
   margin: 30px auto;

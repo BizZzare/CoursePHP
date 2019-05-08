@@ -11,13 +11,13 @@
                    data-open="MENU" data-close="CLOSE" onclick></label>
             <ul class="main-menu">
                 <?php
-                if (!isset($_SESSION["User"]))
+                if (!isset($_SESSION["User"]) || $_SESSION["User"] == null)
                     echo '<li><a href="../register.php">РЕГИСТРАЦИЯ</a></li><li><a href="../auth.php">АВТОРИЗАЦИЯ</a></li>';
 
                 echo '<li><a href="../contacts.php">КОНТАКТЫ</a></li>';
 
-                if (isset($_SESSION["User"]))
-                    echo '<li><a href="#profit">КЛИЕНТЫ</a></li><li><a href="">ЛИЧНЫЙ КАБИНЕТ</a></li>';
+                if (isset($_SESSION["User"]) && $_SESSION["User"] != null)
+                    echo '<li><a href="#profit">КЛИЕНТЫ</a></li><li><a href="../account.php">ЛИЧНЫЙ КАБИНЕТ</a></li>';
                 ?>
             </ul>
         </nav>

@@ -32,7 +32,7 @@ if (
     $gender = $_POST["Gender"];
     $city = $_POST["City"];
     $about = $_POST["About"] ? $_POST["About"] : null;
-    $image = $_POST["Image"] ? addslashes(file_get_contents($_FILES['Image']['tmp_name'])) : null;
+    $image = $_FILES['Image']['tmp_name'] != "" ? addslashes(file_get_contents($_FILES['Image']['tmp_name'])) : null;
 
     //Validation
     if ($login == "" || $login == " "

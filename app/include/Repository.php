@@ -95,23 +95,18 @@ class Repository
         $query = "  INSERT INTO `Clients` 
                     (`FirstName`, `LastName`, `Phone`, `Email`, `Gender`, `Login`, `Password`, `CityId` " . ($about ? ", `About`" : "" ) . ($image ? ", `Image`" : "").") 
                     VALUES 
-                    ('".$firstName."', '".$lastName."', '".$phone."', '".$email."', ".$gender.", '".$login."', '".$password."', ".$city . ($about ? ", '".$about."'" : "") . ($image ? ", ".$image : "").")";
+                    ('".$firstName."', '".$lastName."', '".$phone."', '".$email."', ".$gender.", '".$login."', '".$password."', ".$city . ($about ? ", '".$about."'" : "") . ($image ? ", '".$image."'" : "").")";
 
         if(mysqli_connect_errno()){
             echo "Ошибка в подключении к базе данных (".mysqli_connect_errno()."): ".mysqli_connect_error();
             exit();
         }
 
-        var_dump($query);
-        exit();
-
         if(mysqli_query($link, $query)){
             mysqli_close($link);
             return true;
         }else{
             mysqli_close($link);
-            var_dump(mysqli_error($link));
-            exit();
             return false;
         }
 

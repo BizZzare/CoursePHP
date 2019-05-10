@@ -10,9 +10,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Authorization</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/media.css">
+    <?php require 'app/style_sheet_links.php';?>
 </head>
 <body>
 
@@ -55,5 +53,6 @@ session_start();
 
 </div>
 
+<?php require 'app/scripts.php';?>
 </body>
 </html>

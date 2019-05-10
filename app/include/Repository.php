@@ -32,6 +32,25 @@ class Repository
         return false;
     }
 
+    public function CheckLoginExists($login)
+    {
+        $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
+        $query = "SELECT * FROM Clients WHERE Login='" . $login . "';";
+
+        if (mysqli_connect_errno()) {
+            echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
+            exit();
+        }
+
+        $result = mysqli_query($link, $query);
+
+        mysqli_close($link);
+
+        if (mysqli_num_rows($result) > 0)
+            return true;
+        return false;
+    }
+
     public function GetUser($login, $password)
     {
         $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
@@ -45,6 +64,48 @@ class Repository
         $result = mysqli_query($link, $query);
 
         $user = mysqli_fetch_all($result, MYSQLI_ASSOC)[0];
+
+        mysqli_close($link);
+
+        return $user;
+    }
+
+    public function GetUserById($id)
+    {
+        $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
+        $query = "SELECT * FROM Clients WHERE Id = $id LIMIT 1;";
+
+        if (mysqli_connect_errno()) {
+            echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
+            exit();
+        }
+
+        $result = mysqli_query($link, $query);
+
+        $user = mysqli_fetch_all($result, MYSQLI_ASSOC)[0];
+
+        mysqli_close($link);
+
+        return $user;
+    }
+
+    public function GetAllOtherUsers($Id)
+    {
+        $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
+        $query = "SELECT cl.Id, cl.FirstName, cl.LastName, cl.Email, cl.Phone, cl.Gender, cl.About, cl.Image, ct.Name as City, co.Name as Country 
+                  FROM Clients as cl 
+                    INNER JOIN Cities as ct ON cl.CityId = ct.Id 
+                    INNER JOIN Countries as co ON ct.CountryId = co.Id
+                  WHERE cl.Id != $Id;";
+
+        if (mysqli_connect_errno()) {
+            echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
+            exit();
+        }
+
+        $result = mysqli_query($link, $query);
+
+        $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         mysqli_close($link);
 
@@ -68,25 +129,6 @@ class Repository
         mysqli_close($link);
 
         return $cities;
-    }
-
-    public function CheckLoginExists($login)
-    {
-        $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
-        $query = "SELECT * FROM Clients WHERE Login='" . $login . "';";
-
-        if (mysqli_connect_errno()) {
-            echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
-            exit();
-        }
-
-        $result = mysqli_query($link, $query);
-
-        mysqli_close($link);
-
-        if (mysqli_num_rows($result) > 0)
-            return true;
-        return false;
     }
 
     public function RegisterUser($login, $password, $firstName, $lastName, $email, $phone, $gender, $city, $about, $image)

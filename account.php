@@ -24,10 +24,7 @@ if (isset($_POST["logout"])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Account</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/media.css">
+    <?php require 'app/style_sheet_links.php';?>
 </head>
 <body>
 
@@ -143,5 +140,6 @@ if (isset($_POST["logout"])) {
 
 </div>
 
+<?php require 'app/scripts.php';?>
 </body>
 </html>

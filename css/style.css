@@ -242,8 +242,9 @@ h1 {
   height: 20px;
   line-height: 20px;
   padding: 10px 5px;
-  width: 400px;
+  width: 350px;
   border: 1px solid black;
+  margin-right: 63px;
 }
 
 .form_row_m textarea {
@@ -251,7 +252,7 @@ h1 {
   line-height: 20px;
   font-size: 14px;
   padding: 5px;
-  width: 500px;
+  width: 350px;
   border: 1px solid black;
 }
 
@@ -322,6 +323,12 @@ h1 {
   margin: -5px auto;
   padding: 15px;
 
+}
+
+.details-button{
+  font-weight: bold !important;
+  background: #3E3E3E !important;
+  color: white !important;
 }
 
 .profit .item .subtitle {

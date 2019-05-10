@@ -17,7 +17,7 @@
                 echo '<li><a href="../contacts.php">КОНТАКТЫ</a></li>';
 
                 if (isset($_SESSION["User"]) && $_SESSION["User"] != null)
-                    echo '<li><a href="#profit">КЛИЕНТЫ</a></li><li><a href="../account.php">ЛИЧНЫЙ КАБИНЕТ</a></li>';
+                    echo '<li><a href="../clients.php">КЛИЕНТЫ</a></li><li><a href="../account.php">ЛИЧНЫЙ КАБИНЕТ</a></li>';
                 ?>
             </ul>
         </nav>

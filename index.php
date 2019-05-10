@@ -6,15 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>webdesign</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/media.css">
+    <?php require 'app/style_sheet_links.php';?>
 
 </head>
 <body>
 <div id="page-container">
     <?php require 'app/header.php';?>
-    
+
     <section id="theme" class="theme">
         <img src="assets/images/Fon02.jpg" class="responsive">
     </section>
@@ -54,40 +52,11 @@
         </div>
     </section>
 
-    <section id="profit" class="profit">
-        <div class="container">
-            <div class="row">
-                <div class="item">
-                    <div class="item_img"></div>
-                    <div class="subtitle">Клиент 1</div>
-                    <div class="text">Размещение общей информации о клиенте для дальнейшего ознакомления</div>
-                </div>
-                <div class="item">
-                    <div class="item_img"></div>
-                    <div class="subtitle">Клиент 2</div>
-                    <div class="text">Размещение общей информации о клиенте для дальнейшего ознакомления</div>
-                </div>
-                <div class="item">
-                    <div class="item_img"></div>
-                    <div class="subtitle">Клиент 3</div>
-                    <div class="text">Размещение общей информации о клиенте для дальнейшего ознакомления</div>
-                </div>
-                <div class="item">
-                    <div class="item_img"></div>
-                    <div class="subtitle">Клиент 4</div>
-                    <div class="text">Размещение общей информации о клиенте для дальнейшего ознакомления</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     </div>
     <?php require 'app/footer.php';?>
 </div>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-    </script>
-    <script src="assets/js/script.js"></script>
+<?php require 'app/scripts.php';?>
+
 </body>
 </html>

@@ -14,16 +14,19 @@
                 if (!isset($_SESSION["User"]) || $_SESSION["User"] == null)
                     echo '<li><a href="../register.php">РЕГИСТРАЦИЯ</a></li><li><a href="../auth.php">АВТОРИЗАЦИЯ</a></li>';
 
-                echo '<li><a href="../contacts.php">КОНТАКТЫ</a></li>';
+                echo '<li><a href="../contacts.php">О НАС</a></li>';
 
                 if (isset($_SESSION["User"]) && $_SESSION["User"] != null)
                     echo '<li><a href="../clients.php">КЛИЕНТЫ</a></li><li><a href="../account.php">ЛИЧНЫЙ КАБИНЕТ</a></li>';
                 ?>
             </ul>
         </nav>
-        <form class="s_form" action="../index.php" method="get">
-            <input type="search" name="text">
-            <input type="submit" value="Найти">
-        </form>
+        <?php
+        if(isset($_SESSION["User"]) && $_SESSION["User"] != null){
+            echo '<img class="topimg" src="data:image/png;base64,' . base64_encode($_SESSION["User"]["Image"]) . '" alt="current image" width="50" height="50">';
+            echo '<form method="POST"><input type="submit" name="logout" value="Выйти" /></form>';
+        }
+        ?>
+
     </div>
 </header>

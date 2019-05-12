@@ -32,6 +32,7 @@ if (
     $email = $_POST["Email"];
     $phone = $_POST["Phone"];
     $gender = $_POST["Gender"];
+    $date = $_POST['Date'];
     $city = $_POST["City"];
     $about = $_POST["About"] ? $_POST["About"] : null;
     $image = $_FILES['Image']['tmp_name'] != "" ? addslashes(file_get_contents($_FILES['Image']['tmp_name'])) : $user["Image"];
@@ -75,6 +76,7 @@ if (
         $email,
         $phone,
         $gender,
+        $date,
         $city,
         $about,
         $image

@@ -92,7 +92,7 @@ class Repository
     public function GetAllOtherUsers($Id)
     {
         $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
-        $query = "SELECT cl.Id, cl.FirstName, cl.LastName, cl.Email, cl.Phone, cl.Gender, cl.About, cl.Image, ct.Name as City, co.Name as Country 
+        $query = "SELECT cl.Id, cl.FirstName, cl.LastName, cl.Email, cl.Phone, cl.Gender, cl.DateOfBirth, cl.DateOfBirth, cl.About, cl.Image, ct.Name as City, co.Name as Country 
                   FROM Clients as cl 
                     INNER JOIN Cities as ct ON cl.CityId = ct.Id 
                     INNER JOIN Countries as co ON ct.CountryId = co.Id
@@ -131,13 +131,13 @@ class Repository
         return $cities;
     }
 
-    public function RegisterUser($login, $password, $firstName, $lastName, $email, $phone, $gender, $city, $about, $image)
+    public function RegisterUser($login, $password, $firstName, $lastName, $email, $phone, $gender, $date, $city, $about, $image)
     {
         $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
         $query = "  INSERT INTO `Clients` 
-                    (`FirstName`, `LastName`, `Phone`, `Email`, `Gender`, `Login`, `Password`, `CityId` " . ($about ? ", `About`" : "") . ($image ? ", `Image`" : "") . ") 
+                    (`FirstName`, `LastName`, `Phone`, `Email`, `Gender`, `DateOfBirth`, `Login`, `Password`, `CityId` " . ($about ? ", `About`" : "") . ($image ? ", `Image`" : "") . ") 
                     VALUES 
-                    ('" . $firstName . "', '" . $lastName . "', '" . $phone . "', '" . $email . "', " . $gender . ", '" . $login . "', '" . $password . "', " . $city . ($about ? ", '" . $about . "'" : "") . ($image ? ", '" . $image . "'" : "") . ")";
+                    ('" . $firstName . "', '" . $lastName . "', '" . $phone . "', '" . $email . "', " . $gender . ", '".$date."'" . $login . "', '" . $password . "', " . $city . ($about ? ", '" . $about . "'" : "") . ($image ? ", '" . $image . "'" : "") . ")";
 
         if (mysqli_connect_errno()) {
             echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
@@ -153,7 +153,7 @@ class Repository
         }
     }
 
-    public function UpdateUser($id, $login, $password, $firstName, $lastName, $email, $phone, $gender, $city, $about, $image)
+    public function UpdateUser($id, $login, $password, $firstName, $lastName, $email, $phone, $gender, $date, $city, $about, $image)
     {
         $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
         $query = "UPDATE Clients SET 
@@ -162,6 +162,7 @@ class Repository
                     Email = '$email', 
                     Phone = '$phone',
                     Gender = $gender,
+                    DateOfBirth = '$date',
                     CityId = $city,
                     About = ".($about ? "'$about'" : "NULL").",
                     Image = ".($image ? "'".$image."'" : "NULL").",

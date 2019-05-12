@@ -8,6 +8,11 @@
 
 session_start();
 require_once('app/include/Repository.php');
+if (isset($_POST["logout"])) {
+    $_SESSION["User"] = null;
+    header('Location: index.php');
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,6 +24,66 @@ require_once('app/include/Repository.php');
     <title>Contacts</title>
 
     <?php require 'app/style_sheet_links.php'; ?>
+    <style>
+        button {
+            border-radius: 5px;
+            padding: 15px 25px;
+            font-size: 22px;
+            text-decoration: none;
+            margin: 20px;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            border: 0;
+        }
+
+        button:active {
+            transform: translate(0px, 5px);
+            -webkit-transform: translate(0px, 5px);
+            box-shadow: 0px 1px 0px 0px;
+        }
+
+        button:focus {
+            outline: none !important
+        }
+
+
+
+        /* Кнопка */
+
+        .blue_btn {
+            background-color: #3E3E3E;
+            box-shadow: 0px 5px 0px 0px #3C93D5;
+        }
+
+        /* Окно */
+
+        .overlay_popup {
+            display:none;
+            position:fixed;
+            z-index: 999;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            background:#000;
+            opacity:0.5;
+        }
+
+        .popup {
+            display: none;
+            position: center;
+            z-index: 1000;
+        }
+
+        /* Ещё немного стилей для popup окна */
+
+        .object{
+            background-color: #eee;
+            padding: 50px 70px;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,6 +98,11 @@ require_once('app/include/Repository.php');
     <section id="profit" class="profit">
         <div class="container">
             <div class="row">
+
+                <form class="s_form" action="../index.php" method="get">
+                    <input type="search" name="text">
+                    <input type="submit" value="Найти">
+                </form>
 
                 <?php
 
@@ -53,30 +123,29 @@ require_once('app/include/Repository.php');
 
                         echo '<div class="subtitle">' . $otherUser["FirstName"] . ' ' . $otherUser["LastName"] . '</div>';
 
+                        $age = null;
+                        if($otherUser['DateOfBirth']) {
+                            $birthDate = explode("-", $otherUser['DateOfBirth']);
+                            //get age from date or birthdate
+                            $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")
+                                ? ((date("Y") - $birthDate[0]) - 1)
+                                : (date("Y") - $birthDate[0]));
+                        }
                         echo '
 <div class="text">
-' . ($otherUser["About"] ? 'О себе: <p>' . $otherUser["About"] . '</p><br>' : "") . '
+' . ($otherUser["About"] ? 'О себе: <p>' . $otherUser["About"] . '</p><br>' : "")
+. ( $age ? 'Возраст: ' . $age . '<br>' : "") . '
 Пол: ' . ($otherUser["Gender"] == 1 ? "Мужской" : "Женский") . '<br>
 Город: ' . $otherUser["City"] . '<br>
 Страна: ' . $otherUser["Country"] . '
 </div>
-<button type="button" class="btn btn-primary details-button" data-toggle="modal" data-target="#ModalDetailed"' . $otherUser["Id"] . '>
-  Подробнее
-</button>';
+<button class="show_popup blue_btn" rel="popup'.$otherUser["Id"].'">Подробнее</button>';
 
                         echo '</div>';
 
-                        echo '
-<div class="modal fade" id="ModalDetailed"' . $otherUser["Id"] . ' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalLongTitle">Контакты</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+                        echo '<div class="overlay_popup"></div>
+    <div class="popup" id="popup'.$otherUser["Id"].'">
+      <div class="object">
         <p>Телефон: ' . $otherUser["Phone"] . '</p>
         <p>Электронный адрес: ' . $otherUser["Email"] . '</p>
         <h3>Отправить сообщение</h3>
@@ -95,12 +164,7 @@ require_once('app/include/Repository.php');
                     </div>
                 </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-      </div>
-    </div>
-  </div>
-</div>';
+    </div>';
 
                     }
 
@@ -121,5 +185,15 @@ require_once('app/include/Repository.php');
 </div>
 
 <?php require 'app/scripts.php'; ?>
+<script>
+    $('.show_popup').click(function() { // Вызываем функцию по нажатию на кнопку
+        var popup_id = $('#' + $(this).attr("rel")); // Связываем rel и popup_id
+        $(popup_id).show(); // Открываем окно
+        $('.overlay_popup').show(); // Открываем блок заднего фона
+    })
+    $('.overlay_popup').click(function() { // Обрабатываем клик по заднему фону
+        $('.overlay_popup, .popup').hide(); // Скрываем затемнённый задний фон и основное всплывающее окно
+    })
+</script>
 </body>
 </html>

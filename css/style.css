@@ -1,373 +1,395 @@
 @import url(media.css);
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 li {
-  list-style: none;
-  display: flex;
+    list-style: none;
+    display: flex;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 header {
-  position: fixed;
-  width: 100%;
-  background: linear-gradient(to right, #7A7270, #C6C6C6);
-  padding: 25px 0;
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to right, #7A7270, #C6C6C6);
+    padding: 25px 0;
 }
 
 .header-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .logo {
-  margin-top: 8px;
-  margin-right: 5px;
+    margin-top: 8px;
+    margin-right: 5px;
 }
 
 .header-container a {
-  color: #fff;
-  font-size: 16px;
-  margin-right: 63px;
-  padding: 0 6px;
+    color: #fff;
+    font-size: 16px;
+    margin-right: 63px;
+    padding: 0 6px;
 }
 
 .header-container a:hover {
-  color: black;
-  border-bottom: 2px solid black;
-  transition: all ease 0.5s;
+    color: black;
+    border-bottom: 2px solid black;
+    transition: all ease 0.5s;
 }
 
 .header-container a:focus {
-  color: #fff;
-  border-bottom: 2px solid #fff;
+    color: #fff;
+    border-bottom: 2px solid #fff;
 }
 
 #menu-checkbox {
-  display: none;
+    display: none;
 }
 
 ul {
-  display: flex;
+    display: flex;
 }
 
 nav {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 
 .s_form {
-  margin-top: 23px;
+    margin-top: 23px;
 }
 
 .s_form input {
-  height: 20px;
-  line-height: 20px;
-  border: 1px solid black;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid black;
 }
 
 .s_form input[type=submit] {
-  padding: 5px;
-  height: 20px;
-  line-height: 5px;
-  font-weight: bold;
-  background: #3E3E3E;
-  color: white;
+    padding: 5px;
+    height: 20px;
+    line-height: 5px;
+    font-weight: bold;
+    background: #3E3E3E;
+    color: white;
 }
 
 .s_form input[type=submit]:hover {
-  background: #7A7270;
+    background: #7A7270;
 }
 
 .container {
-  max-width: 1180px;
-  margin: 0 auto;
-  height: 100%;
-  padding: 0 5px;
-  overflow: hidden;
+    max-width: 1180px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 5px;
+    overflow: hidden;
 }
 
 .responsive {
-  width: 100%;
-  height: auto;
-  margin-top: 120px;
-  margin-bottom: -10px;
+    width: 100%;
+    height: auto;
+    margin-top: 120px;
+    margin-bottom: -10px;
 }
 
 .form_reg {
-  background-image: url("../assets/images/fon01.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  height: 700px;
+    background-image: url("../assets/images/fon01.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 700px;
 }
 
 .form_account {
-  background-image: url("../assets/images/fon01.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  height: 1100px;
+    background-image: url("../assets/images/fon01.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 1100px;
 }
 
 .r_form {
-  width: 700px;
-  margin: 30px auto;
+    width: 700px;
+    margin: 30px auto;
 }
 
 .form_row {
-  margin-bottom: 10px;
-  overflow: hidden;
-  font-size: 14px;
-  font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
 }
-
 
 .form_row input, select {
-  float: right;
-  height: 20px;
-  line-height: 20px;
-  padding: 10px 5px;
-  width: 400px;
-  border: 1px solid black;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px 5px;
+    width: 400px;
+    border: 1px solid black;
 }
 
-.img input{
-  height: 40px !important;
-  line-height: normal !important;
+.img input {
+    height: 40px !important;
+    line-height: normal !important;
 }
-
 
 h1 {
-  text-align: center;
-  margin-top: 30px;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .form_row textarea {
-  height: 100px;
-  line-height: 20px;
-  font-size: 14px;
-  padding: 5px;
-  width: 500px;
-  border: 1px solid black;
+    height: 100px;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 5px;
+    width: 500px;
+    border: 1px solid black;
 }
 
 .form_row input[type=submit] {
-  padding: 5px;
-  height: 30px;
-  width: 100%;
-  line-height: 10px;
-  font-weight: bold;
-  background: #3E3E3E;
-  color: white;
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    line-height: 10px;
+    font-weight: bold;
+    background: #3E3E3E;
+    color: white;
 }
 
 .form_row input[type=submit]:hover {
-  background: #7A7270;
+    background: #7A7270;
 }
 
 .form_autoris {
-  background-image: url("../assets/images/fon01.jpg");
-  background-attachment: fixed;
-  background-size: auto;
-  height: 560px;
+    background-image: url("../assets/images/fon01.jpg");
+    background-attachment: fixed;
+    background-size: auto;
+    height: 560px;
 }
 
 .a_form {
-  width: 280px;
-  margin: 30px auto;
+    width: 280px;
+    margin: 30px auto;
 }
 
 .form_row_a {
-  margin-bottom: 10px;
-  overflow: hidden;
-  font-size: 14px;
-  font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .form_row_a input {
-  float: right;
-  height: 20px;
-  line-height: 20px;
-  padding: 10px 5px;
-  width: 200px;
-  border: 1px solid black;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px 5px;
+    width: 200px;
+    border: 1px solid black;
 }
 
 .form_row_a input[type=submit] {
-  padding: 5px;
-  height: 30px;
-  width: 100%;
-  line-height: 10px;
-  font-weight: bold;
-  background: #3E3E3E;
-  color: white;
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    line-height: 10px;
+    font-weight: bold;
+    background: #3E3E3E;
+    color: white;
 }
 
 .form_row_a input[type=submit]:hover {
-  background: #7A7270;
+    background: #7A7270;
 }
 
 .form_message {
-  background-image: url("../assets/images/fon01.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+    background-image: url("../assets/images/fon01.jpg");
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .m_form {
-  width: 500px;
-  margin: 30px auto;
+    width: 500px;
+    margin: 30px auto;
 }
 
 .form_row_m {
-  margin-bottom: 10px;
-  overflow: hidden;
-  font-size: 14px;
-  font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .form_row_m input {
-  float: right;
-  height: 20px;
-  line-height: 20px;
-  padding: 10px 5px;
-  width: 350px;
-  border: 1px solid black;
-  margin-right: 63px;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px 5px;
+    width: 350px;
+    border: 1px solid black;
+    margin-right: 63px;
 }
 
 .form_row_m textarea {
-  height: 100px;
-  line-height: 20px;
-  font-size: 14px;
-  padding: 5px;
-  width: 350px;
-  border: 1px solid black;
+    height: 100px;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 5px;
+    width: 350px;
+    border: 1px solid black;
 }
 
 .form_row_m input[type=submit] {
-  padding: 5px;
-  height: 30px;
-  width: 60px;
-  float: left;
-  line-height: 10px;
-  font-weight: bold;
-  background: #3E3E3E;
-  color: white;
+    padding: 5px;
+    height: 30px;
+    width: 60px;
+    float: left;
+    line-height: 10px;
+    font-weight: bold;
+    background: #3E3E3E;
+    color: white;
 }
 
 .form_row_m input[type=reset] {
-  padding: 5px;
-  height: 30px;
-  width: 60px;
-  float: right;
-  line-height: 10px;
-  font-weight: bold;
-  background: #3E3E3E;
-  color: white;
+    padding: 5px;
+    height: 30px;
+    width: 60px;
+    float: right;
+    line-height: 10px;
+    font-weight: bold;
+    background: #3E3E3E;
+    color: white;
 }
 
 .form_row_m input[type=submit]:hover {
-  background: #7A7270;
+    background: #7A7270;
 }
 
 .form_row_m input[type=reset]:hover {
-  background: #7A7270;
+    background: #7A7270;
 }
 
 .profit {
-  background: #B6BBCF;
-  padding: 15px;
+    background: #B6BBCF;
+    padding: 15px;
 }
 
 .profit .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  border: 1px solid darkblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid darkblue;
 }
 
 .profit .item {
-  text-align: center;
-  margin: 15px;
-  flex-basis: 250px;
+    text-align: center;
+    margin: 15px;
+    flex-basis: 250px;
 }
 
 .profit .item_img {
-  background-image: url("../assets/images/img001.jpg");
-  background-position: center;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
-  padding: 15px;
-  border: 2px solid darkblue;
-  border-radius: 50%;
-  transition: all ease-in 0.2s;
+    background-image: url("../assets/images/img001.jpg");
+    background-position: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 2px solid darkblue;
+    border-radius: 50%;
+    transition: all ease-in 0.2s;
 }
 
 .profit .item_img:hover {
-  background-image: url("../assets/images/img002.jpg");
-  width: 90px;
-  height: 90px;
-  margin: -5px auto;
-  padding: 15px;
+    background-image: url("../assets/images/img002.jpg");
+    width: 90px;
+    height: 90px;
+    margin: -5px auto;
+    padding: 15px;
 
 }
 
-.details-button{
-  font-weight: bold !important;
-  background: #3E3E3E !important;
-  color: white !important;
+.details-button {
+    font-weight: bold !important;
+    background: #3E3E3E !important;
+    color: white !important;
 }
 
 .profit .item .subtitle {
-  color: #000;
-  font-size: 1.5rem;
-  margin: 3px 0;
+    color: #000;
+    font-size: 1.5rem;
+    margin: 3px 0;
 }
 
 .profit .item .text {
-  color: darkblue;
+    color: darkblue;
 }
 
 #page-container {
-  position: relative;
-  min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
 }
+
 #content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 2.5rem; /* Footer height */
 }
+
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 4.5rem;        /* Footer height */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4.5rem; /* Footer height */
 }
 
 footer {
-  padding: 25px 0 20px 0;
-  background: linear-gradient(to left, #7A7270, #C6C6C6);
-  background-size: cover;
-  background-attachment: fixed;
+    padding: 25px 0 20px 0;
+    background: linear-gradient(to left, #7A7270, #C6C6C6);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .footer_content {
-  font-weight: bold;
-  color: black;
-  text-align: center;
+    font-weight: bold;
+    color: black;
+    text-align: center;
 }
 
-.login-error{
-  color: red;
+.login-error {
+    color: red;
+}
+
+.numberphone {
+    position: absolute;
+    right: 200px;
+    color: black;
+}
+
+.inst {
+
+    position: absolute;
+    right: 40px;
+    color: black;
+}
+
+.inst a {
+    color: black;
+
+}
+
+.topimg{
+
 }

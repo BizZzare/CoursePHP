@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_POST["logout"])) {
+    $_SESSION["User"] = null;
+    header('Location: index.php');
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>

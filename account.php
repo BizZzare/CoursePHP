@@ -15,6 +15,7 @@ if (isset($_POST["logout"])) {
     header('Location: index.php');
 }
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,6 +67,10 @@ if (isset($_POST["logout"])) {
                     echo '<div class="form_row">
                         <label for="s_name">Фамилия: </label>
                         <input type="text" id="s_name" name="LastName"  value="' . $user["LastName"] . '"/>
+                    </div>';
+                    echo '<div class="form_row">
+                        <label for="form_email">Дата рождения: </label>
+                        <input type="date" id="form_email" name="Date"  value="' . $user["DateOfBirth"] . '"/>
                     </div>';
                     echo '<div class="form_row">
                         <label for="form_email">Email: </label>

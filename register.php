@@ -53,6 +53,10 @@ session_start();
                         <input type="email" id="form_email" name="Email" required/>
                     </div>
                     <div class="form_row">
+                        <label for="form_email">Дата рождения: </label>
+                        <input type="date" id="form_email" name="Date"/>
+                    </div>
+                    <div class="form_row">
                         <label for="form_phone">Телефон: </label>
                         <input type="text" id="form_phone" name="Phone" required/>
                     </div>

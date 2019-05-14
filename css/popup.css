@@ -1,0 +1,60 @@
+button {
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 20px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+}
+
+button:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+button:focus {
+    outline: none !important
+}
+
+/* Кнопка */
+
+.blue_btn {
+    background-color: #3E3E3E;
+    box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+
+/* Окно */
+
+.overlay_popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px; /* Negative half of height. */
+    margin-left: -250px; /* Negative half of width. */
+    z-index: 1000;
+}
+
+/* Ещё немного стилей для popup окна */
+
+.object {
+    background-color: #eee;
+    padding: 50px 70px;
+}

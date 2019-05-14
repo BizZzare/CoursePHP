@@ -89,14 +89,14 @@ class Repository
         return $user;
     }
 
-    public function GetAllOtherUsers($Id)
+    public function GetAllOtherUsers($Id, $condition = null)
     {
         $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
         $query = "SELECT cl.Id, cl.FirstName, cl.LastName, cl.Email, cl.Phone, cl.Gender, cl.DateOfBirth, cl.DateOfBirth, cl.About, cl.Image, ct.Name as City, co.Name as Country 
                   FROM Clients as cl 
                     INNER JOIN Cities as ct ON cl.CityId = ct.Id 
                     INNER JOIN Countries as co ON ct.CountryId = co.Id
-                  WHERE cl.Id != $Id;";
+                  WHERE cl.Id != $Id $condition;";
 
         if (mysqli_connect_errno()) {
             echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
@@ -131,13 +131,32 @@ class Repository
         return $cities;
     }
 
+    public function GetAllCountries()
+    {
+        $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
+        $query = "SELECT * FROM Countries;";
+
+        if (mysqli_connect_errno()) {
+            echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
+            exit();
+        }
+
+        $result = mysqli_query($link, $query);
+
+        $cities = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        mysqli_close($link);
+
+        return $cities;
+    }
+
     public function RegisterUser($login, $password, $firstName, $lastName, $email, $phone, $gender, $date, $city, $about, $image)
     {
         $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
         $query = "  INSERT INTO `Clients` 
                     (`FirstName`, `LastName`, `Phone`, `Email`, `Gender`, `DateOfBirth`, `Login`, `Password`, `CityId` " . ($about ? ", `About`" : "") . ($image ? ", `Image`" : "") . ") 
                     VALUES 
-                    ('" . $firstName . "', '" . $lastName . "', '" . $phone . "', '" . $email . "', " . $gender . ", '".$date."'" . $login . "', '" . $password . "', " . $city . ($about ? ", '" . $about . "'" : "") . ($image ? ", '" . $image . "'" : "") . ")";
+                    ('" . $firstName . "', '" . $lastName . "', '" . $phone . "', '" . $email . "', " . $gender . ", '".$date."', '" . $login . "', '$password', " . $city . ($about ? ", '" . $about . "'" : "") . ($image ? ", '" . $image . "'" : "") . ")";
 
         if (mysqli_connect_errno()) {
             echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();

@@ -85,6 +85,6 @@ if (isset($_POST["discard"]))
 </div>
 <?php require 'app/scripts.php'; ?>
 
-<script src="assets/js/popup.js"/>
+<script src="assets/js/popup.js"></script>
 </body>
 </html>

@@ -105,11 +105,15 @@ class Repository
 
         $result = mysqli_query($link, $query);
 
-        $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        if($result) {
+            $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        mysqli_close($link);
+            mysqli_close($link);
 
-        return $user;
+            return $user;
+        }
+        else
+            return false;
     }
 
     public function GetAllCities()

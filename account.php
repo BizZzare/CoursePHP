@@ -6,6 +6,7 @@
  * Time: 10:42
  */
 session_start();
+require_once('app/include/Repository.php');
 
 if (isset($_POST["discard"])) {
     header('Location: index.php');
@@ -14,7 +15,16 @@ if (isset($_POST["logout"])) {
     $_SESSION["User"] = null;
     header('Location: index.php');
 }
-
+if (isset($_POST["deleteAccount"])) {
+    $rep = new Repository();
+    if($rep->DeleteUser($_SESSION["User"]["Id"])){
+        $_SESSION["User"] = null;
+        header('Location: index.php');
+    }
+    else{
+        $_POST = null;
+    }
+}
 
 ?>
 <!doctype html>
@@ -42,7 +52,6 @@ if (isset($_POST["logout"])) {
             <div class="row">
                 <h1>Мой профиль</h1>
                 <?php
-                require_once('app/include/Repository.php');
                 $rep = new Repository();
 
                 $user = $_SESSION["User"];
@@ -113,6 +122,7 @@ if (isset($_POST["logout"])) {
 
                     echo '<form method="POST"><input type="submit" name="discard" value="Отменить изменения" /></form>';
                     echo '<form method="POST"><input type="submit" name="logout" value="Выйти" /></form>';
+                    echo '<form onsubmit="return confirm(\'Вы действительно хотите удалить свой профиль?\');" method="POST"><input id="deleteAccount" type="submit" name="deleteAccount" value="Удалить аккаунт" /></form>';
                 }
 
                 if (isset($_SESSION["UpdateError"])) {
@@ -146,5 +156,14 @@ if (isset($_POST["logout"])) {
 </div>
 
 <?php require 'app/scripts.php';?>
+<script>
+    function onSubmitDeleteAccount(form) {
+        if (confirm("Are you sure you want to submit the form?")) {
+            form.submit();
+        }
+        else
+            return false;
+    }
+</script>
 </body>
 </html>

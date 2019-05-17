@@ -206,4 +206,21 @@ class Repository
         }
     }
 
+    public function DeleteUser($id){
+        $link = mysqli_connect($this->_dbHost, $this->_dbUserName, $this->_dbPassword, $this->_databaseName);
+        $query = "DELETE FROM `Clients` WHERE Id = $id;";
+        if (mysqli_connect_errno()) {
+            echo "Ошибка в подключении к базе данных (" . mysqli_connect_errno() . "): " . mysqli_connect_error();
+            exit();
+        }
+
+        if (mysqli_query($link, $query)) {
+            mysqli_close($link);
+            return true;
+        } else {
+            mysqli_close($link);
+            return false;
+        }
+    }
+
 }

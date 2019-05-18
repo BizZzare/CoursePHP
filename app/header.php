@@ -19,12 +19,14 @@
                 if (isset($_SESSION["User"]) && $_SESSION["User"] != null)
                     echo '<li><a href="../clients.php">КЛИЕНТЫ</a></li><li><a href="../account.php">ЛИЧНЫЙ КАБИНЕТ</a></li>';
                 ?>
+
             </ul>
+
         </nav>
         <?php
         if(isset($_SESSION["User"]) && $_SESSION["User"] != null){
-            echo '<img class="topimg" src="data:image/png;base64,' . base64_encode($_SESSION["User"]["Image"]) . '" alt="current image" width="50" height="50">';
-            echo '<form method="POST"><input type="submit" name="logout" value="Выйти" /></form>';
+            echo '<div class="user-controls"><img class="topimg" src="data:image/png;base64,' . base64_encode($_SESSION["User"]["Image"]) . '" alt="current image" width="50" height="50">';
+            echo '<a><form method="POST"><input class="logoutbutton" type="submit" name="logout" value="Выйти" /></form></a></div>';
         }
         ?>
 

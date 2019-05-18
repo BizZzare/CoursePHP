@@ -40,12 +40,14 @@ if (isset($_POST["discard"]))
 
     <section class="profit">
         <form class="s_form" action="clients.php" method="post">
-            Поиск по имени: <input type="search" name="text" value="<?php echo $_POST["text"] ?>"><br>
+            <div class="filter-radio">
             <input type="radio" name="gender" value="1" <?php if ($_POST["gender"] == 1) echo 'checked' ?>/> Мужской
             <input type="radio" name="gender" value="0" <?php if ($_POST["gender"] == 0) echo 'checked' ?>/> Женский
+            </div>
             <br>
-            Возраст от: <input type="number" name="ageFrom" value="<?php echo $_POST["ageFrom"] ?>"> <br>
-            Возраст до: <input type="number" name="ageTo" value="<?php echo $_POST["ageTo"] ?>"> <br>
+            Поиск по имени: <input class="filter-controls" type="search" name="text" value="<?php echo $_POST["text"] ?>"><br>
+            Возраст от: <input class="filter-controls" type="number" name="ageFrom" value="<?php echo $_POST["ageFrom"] ?>"> <br>
+            Возраст до: <input class="filter-controls" type="number" name="ageTo" value="<?php echo $_POST["ageTo"] ?>"> <br>
             <?php
 
             $rep = new Repository();
